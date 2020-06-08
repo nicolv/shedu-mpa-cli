@@ -1,0 +1,27 @@
+{% extends './layout.html' %}
+
+{% block title %}
+index
+{% endblock %}
+
+{% block content %}
+<div>
+  <h1>hello swig [[ data]]</h1>
+  <hr>
+  <div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
+</div>
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="styles/index.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="scripts/index.js"></script>
+<script>
+  console.log('页面内的脚本')
+</script>
+{% endblock %}
