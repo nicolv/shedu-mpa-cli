@@ -4,7 +4,7 @@ class IndexController {
   }
 
   async actionIndex(ctx, next) {
-    ctx.body = await ctx.render('index-vue')
+    ctx.body = await ctx.render('index')
   }
 }
 
