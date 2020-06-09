@@ -10,7 +10,11 @@ const { port, viewDir, staticDir } = require('./config')
 const co = require('co')
 const app = new Koa();
 const serve = require('koa-static')
+const { historyApiFallback } = require('koa2-connect-history-api-fallback')
+
 app.use(serve(staticDir))
+app.use(historyApiFallback({ index: '/', whiteList: ['/api'] }));
+
 app.context.render = co.wrap(render({
   root: viewDir,
   autoescape: true,
