@@ -1,14 +1,15 @@
 const router = require('koa-simple-router');
 
-const DemoIndexController = require('@controllers/DemoIndexController');
-const DemoController = require('@controllers/DemoController');
-const demoIndexController = new DemoIndexController();
-const demoController = new DemoController();
+const IndexController = require('@controllers/IndexController');
+const ApiController = require('@controllers/ApiController');
+
+const indexController = new IndexController();
+const apiController = new ApiController();
 
 module.exports = app => {
   app.use(router(_ => {
-    _.get('/', demoIndexController.actionIndex)
-    _.get('/index.html', demoIndexController.actionIndex)
-    _.get('/demo/list', demoController.actionIndex)
+    _.get('/', indexController.actionIndex)
+    _.get('/index.html', indexController.actionIndex)
+    _.get('/api/list', apiController.actionIndex)
   }));
 }

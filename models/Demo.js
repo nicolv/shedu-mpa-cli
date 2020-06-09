@@ -24,10 +24,7 @@ class Demo {
    * getData(options)
    */
   getData(options) {
-    return Promise.resolve({
-      message: '数据请求成功',
-      data: 'demo 列表'
-    });
+    return Promise.resolve('demo 列表');
   }
 
 }

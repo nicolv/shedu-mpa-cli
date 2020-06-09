@@ -1,6 +1,6 @@
 const Demo = require('@models/Demo')
 
-class DemoController {
+class ApiController {
   constructor() {
 
   }
@@ -8,7 +8,7 @@ class DemoController {
   async actionIndex(ctx) {
     const demo = new Demo();
     const result = await demo.getData();
-    ctx.body = result
+    ctx.body = { result }
   }
 
   async actionUpdate(ctx, next) {
@@ -24,4 +24,4 @@ class DemoController {
   }
 }
 
-module.exports = DemoController;
+module.exports = ApiController;
