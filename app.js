@@ -20,6 +20,7 @@ log4js.configure({
 
 const logger = log4js.getLogger('cheese')
 logger.error('错误日志监听成功')
+logger.fatal('毁灭性日志监听成功')
 
 app.use(serve(staticDir))
 app.use(historyApiFallback({ index: '/', whiteList: ['/api'] }));
