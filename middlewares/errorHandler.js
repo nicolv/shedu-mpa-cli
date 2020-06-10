@@ -1,4 +1,4 @@
-module.exports = errorHandler = {
+const errorHandler = {
   error(app, logger) {
     app.use(async (ctx, next) => {
 
@@ -13,3 +13,5 @@ module.exports = errorHandler = {
     })
   }
 }
+
+module.exports = errorHandler;
