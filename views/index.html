@@ -20,8 +20,18 @@ index
 {% endblock %}
 
 {% block scripts %}
-<script src="scripts/index.js"></script>
+<!-- <script src="scripts/index.js"></script> -->
+<script src="scripts/demo.js"></script>
 <script>
   console.log('页面内的脚本')
+
+  _.map('demo', function() {
+    console.log(123)
+  })
+
+  _('demo').map(function() {
+    console.log(456)
+  })
+
 </script>
 {% endblock %}
