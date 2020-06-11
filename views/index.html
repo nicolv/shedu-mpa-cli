@@ -24,12 +24,20 @@ index
 {% block scripts %}
 <!-- <script src="scripts/index.js"></script> -->
 <script src="scripts/demo.js"></script>
+<script type="nomodule" src="https://cdn.bootcdn.net/ajax/libs/systemjs/6.3.2/system.min.js"></script>
+
+<script type="nomodule">
+  System.import("/scripts/index-bundle.js").then((result) => {
+    console.log("使用ES6的module", result.default)
+  })
+</script>
+
 <script type="module">
   console.log('页面内的脚本')
 
-  // _.map('demo', function() {
-  //   console.log(123)
-  // })
+  _.map('demo', function() {
+    console.log(123)
+  })
 
   _('demo').map(function() {
     console.log(456)
@@ -47,8 +55,8 @@ index
     console.log('debounce', Math.random())
   }))
 
-  import("/scripts/demo.js").then((result) => {
-    console.log("使用ES6的module", result)
+  import("/scripts/index.js").then((result) => {
+    console.log("使用ES6的module", result.data)
   })
 </script>
 {% endblock %}
