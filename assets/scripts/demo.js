@@ -41,6 +41,28 @@
     console.log("🍎", callback)
   }
 
+  _.throttle = function(func, wait = 500) {
+    let timer = null;
+    return function(...args) {
+      console.log(timer)
+      if (timer == null) {
+        timer = setTimeout(() => { timer = null }, wait);
+        return func.apply(this, args)
+      }
+    }
+  }
+
+  _.debounce = function(func, wait = 500) {
+    let timer = null;
+    return function(...args) {
+      if (timer == null) {
+        var result = func.apply(this, args)
+      }
+      timer = setTimeout(() => { timer = null }, wait);
+      return result;
+    }
+  }
+
   _.mixin = function(obj) {
     _.each(_.functions(obj), function(name) {
       var func = _[name] = obj[name];

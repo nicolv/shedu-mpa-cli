@@ -9,6 +9,8 @@ index
   <h1>hello swig [[ data]]</h1>
   <hr>
   <div id="app-6">
+    <button id="js-btn-1">产生随机数(throttle)</button>
+    <button id="js-btn-2">产生随机数(debounce)</button>
     <p>{{ message }}</p>
     <input v-model="message">
   </div>
@@ -33,5 +35,16 @@ index
     console.log(456)
   })
 
+  const { throttle, debounce } = _;
+
+  const btn1 = document.getElementById('js-btn-1');
+  btn1.addEventListener('click', throttle(() => {
+    console.log('throttle', Math.random())
+  }))
+
+  const btn2 = document.getElementById('js-btn-2');
+  btn2.addEventListener('click', debounce(() => {
+    console.log('debounce', Math.random())
+  }))
 </script>
 {% endblock %}
