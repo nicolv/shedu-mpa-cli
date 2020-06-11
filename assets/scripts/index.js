@@ -1,8 +1,10 @@
-console.log('🐷 index')
+const data = '🐷 index';
 
-new Vue({
-  el: '#app-6',
-  data: {
-    message: 'Hello Vue'
-  }
-})
+export default data;
+
+// new Vue({
+//   el: '#app-6',
+//   data: {
+//     message: 'Hello Vue'
+//   }
+// })

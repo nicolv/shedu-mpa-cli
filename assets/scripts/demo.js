@@ -66,11 +66,10 @@
   _.mixin = function(obj) {
     _.each(_.functions(obj), function(name) {
       var func = _[name] = obj[name];
-      console.log('🐛', name)
-
       _.prototype[name] = function() {
-        push.apply([this._wrapped], arguments);
-        return func.apply(_, [this._wrapped]);
+        var arg = [this._wrapped]
+        push.apply(arg, arguments);
+        return func.apply(_, arg);
       };
     });
     return _;
